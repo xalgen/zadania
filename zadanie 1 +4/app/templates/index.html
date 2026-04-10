@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Hello World{% endblock %}
+{% block content %}
+    <h1>Hello World!</h1>
+    <p>Wybierz tryb zapisu formularza:</p>
+    <ul>
+        <li><a href="/sync">Formularz synchroniczny</a> — zapis natychmiastowy, czekasz na odpowiedź</li>
+        <li><a href="/async">Formularz asynchroniczny</a> — zapis przez kolejkę Celery + Redis</li>
+    </ul>
+{% endblock %}

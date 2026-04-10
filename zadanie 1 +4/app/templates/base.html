@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Flask App{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px; }
+        .flash-success { color: green; background: #e8f5e9; padding: 10px; border-radius: 4px; }
+        .flash-error { color: red; background: #ffebee; padding: 10px; border-radius: 4px; }
+        input[type=text] { width: 100%; padding: 8px; margin: 6px 0 16px; box-sizing: border-box; }
+        button { background: #1976d2; color: white; padding: 10px 24px; border: none; cursor: pointer; border-radius: 4px; }
+        nav a { margin-right: 16px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/sync">Formularz Sync</a>
+        <a href="/async">Formularz Async</a>
+    </nav>
+    <hr>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            <p class="flash-{{ category }}">{{ message }}</p>
+        {% endfor %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</body>
+</html>

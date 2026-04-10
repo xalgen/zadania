@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Formularz asynchroniczny{% endblock %}
+{% block content %}
+    <h2>Formularz asynchroniczny</h2>
+    <p>Dane zostaną dodane do kolejki Celery i zapisane w tle przez workera Redis.</p>
+    <form method="POST" action="/async">
+        <label>Imię:</label>
+        <input type="text" name="first_name" required placeholder="Jan">
+        <label>Nazwisko:</label>
+        <input type="text" name="last_name" required placeholder="Kowalski">
+        <button type="submit">Wyślij (async)</button>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    </form>
+{% endblock %}

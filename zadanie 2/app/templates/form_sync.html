@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Formularz synchroniczny{% endblock %}
+{% block content %}
+    <h2>Formularz synchroniczny</h2>
+    <p>Dane zostaną zapisane bezpośrednio do bazy podczas obsługi żądania POST.</p>
+    <form method="POST" action="/sync">
+        <label>Imię:</label>
+        <input type="text" name="first_name" required placeholder="Jan">
+        <label>Nazwisko:</label>
+        <input type="text" name="last_name" required placeholder="Kowalski">
+        <button type="submit">Wyślij (sync)</button>
+    </form>
+{% endblock %}

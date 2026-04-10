@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Sukces{% endblock %}
+{% block content %}
+    <h2>✅ Formularz wysłany</h2>
+    <p>Tryb: <strong>{{ mode }}</strong></p>
+    {% if task_id %}
+        <p>ID zadania Celery: <code>{{ task_id }}</code></p>
+        <p><a href="/task-status/{{ task_id }}">Sprawdź status zadania (JSON)</a></p>
+    {% endif %}
+    <a href="/">← Powrót na stronę główną</a>
+{% endblock %}

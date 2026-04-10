@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Formularz synchroniczny{% endblock %}
+{% block content %}
+    <h2>Formularz synchroniczny</h2>
+    <p>Dane zostaną zapisane bezpośrednio do bazy podczas obsługi żądania POST.</p>
+    <form method="POST" action="/sync">
+        <!-- Honeypot: ukryte przed użytkownikiem, widoczne dla botów -->
+        <div style="display:none;" aria-hidden="true">
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <label>Imię:</label>
+        <input type="text" name="first_name" required placeholder="Jan">
+        <label>Nazwisko:</label>
+        <input type="text" name="last_name" required placeholder="Kowalski">
+        <button type="submit">Wyślij (sync)</button>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    </form>
+{% endblock %}
