@@ -112,12 +112,6 @@ Limit 5 requestów POST na minutę per adres IP. Blokuje masowe ataki nawet jeś
 
 Każdy formularz zawiera ukryty token generowany po stronie serwera. Żądania POST bez ważnego tokenu są odrzucane. Chroni przed atakami Cross-Site Request Forgery, gdzie złośliwa strona próbuje wysłać formularz w imieniu użytkownika.
 
-### Dlaczego ta kombinacja?
-
-Honeypot eliminuje boty nieużywające JavaScript. Rate limiting blokuje masowe ataki z jednego IP. CSRF chroni przed innym wektorem ataku — podrabianiem żądań z zewnętrznych stron. Razem pokrywają zdecydowaną większość realnych scenariuszy przy zerowym koszcie i minimalnym wpływie na UX.
-
-Kolejnym krokiem w środowisku produkcyjnym byłoby dodanie hCaptcha dla headless browserów oraz FingerprintJS do śledzenia urządzeń rotujących IP.
-
 ---
 
 ## Struktura repozytoriów
